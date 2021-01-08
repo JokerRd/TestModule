@@ -1,0 +1,3 @@
+[0105/152453.803:ERROR:settings.cc(320)] Settings magic is not 1129342067
+[0105/153454.240:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+[0107/140802.213:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
