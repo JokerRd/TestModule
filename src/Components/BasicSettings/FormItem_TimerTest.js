@@ -8,7 +8,7 @@ function FormItem_TimerTest(props){
         <Form.Item label = "Ограничение по времени">
             <Switch checkedChildren = "Включено" unCheckedChildren = "Выключено" onClick = {() => setIsDisabled(!isDisabled)}></Switch>
             <TimePicker 
-            disabled = {isDisabled} onChange = {(e) => props.test.timeLimits = e.toString()}/>
+            disabled = {isDisabled} onOk = {(e) => props.test.timeLimits = e.milliseconds()}/>
         </Form.Item>
     )
 }

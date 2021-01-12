@@ -32,7 +32,10 @@ function PeekTypeQuestion(props){
                 props.test.questions, questionJson);}}>
                 C несколькими ответоми
             </Button>    
-            <Button onClick = {()=> addQuestion(props.questions, props.add,<TextAnswerQuestion test = {props.test}/>, props.test.questions)}>        
+            <Button onClick = {()=>{
+                var questionJson = new QuestionJson();
+                addQuestion(props.questions, props.add,<MultiAnswerQuestion questionJson = {questionJson}/>,
+                props.test.questions, questionJson);}}>        
                 Текстовый ответ
             </Button>
             <Button onClick = {()=> addQuestion(props.questions, props.add,<FileAnswerQuestion test = {props.test}/>, props.test.questions)}>

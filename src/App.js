@@ -1,17 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
-import ButtonBase from '@material-ui/core/Button';
-import Checkbox from '@material-ui/core/Checkbox';
-import * as Survey from "survey-react";
-import "survey-react/survey.css";
+import React, { useState } from 'react';
 import TestEditor from './Components/TestEditor';
-import MenuSwitchSettings from './Components/MenuSwitchSettings';
-import BasicSettings from './Components/BasicSettings';
-import AdvancedSettings from './Components/AdvancedSettings';
-import SingleAnswerQuestion from './Components/Questions/SingleAnswerQuestion';
-import MultiAnswerQuestion from './Components/Questions/MultiAnswerQuestion';
-import FileAnswerQuestion from './Components/Questions/FileAnswerQuestion';
-import TextAnswerQuestion from './Components/Questions/TextAnswerQuestion';
+import TestViewer from './Components/TestViewer/TestViewer';
+import TestJson from './Components/TestJson';
+import QuestionJson from './Components/QuestionJson';
+import StartPage from './Components/StartPage';
+import MyTest from './Components/MyTest';
+import {
+  Route,
+  Switch,
+  Redirect,
+  withRouter
+} from "react-router-dom"
+
 
 function print(){
   console.log("Error");
@@ -22,10 +24,24 @@ function onComplete(survey, options){
   console.log("Survey results: " + JSON.stringify(survey.data));
  }
 
+let test1 = null;
+
+function setTest1(test){
+  test1 = test;
+}
+
 function App() {
+  const [user, setUser] = useState("");
+  const [test, setTest] = useState(null);
+  console.log(test1);
   return (
     <div className="App">
-      <TestEditor />
+      <Switch>
+        <Route path = "/startPage" component = {() => <StartPage setUser = {setUser}/>}/>
+        <Route path = "/testEditor" component = {() => <TestEditor user = "test"/>}/>
+        <Route path = "/tests" component = {() => <MyTest idUser = "test"  setTest = {setTest1}/>}/>
+        <Route path = "/test" component = {() => <TestViewer idUser = "test"  />}/>
+      </Switch>
     </div>
   );
 }
