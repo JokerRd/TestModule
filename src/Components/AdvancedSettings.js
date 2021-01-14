@@ -7,13 +7,15 @@ function AdvancedSettings(props){
     return(
         <Form>
             <Form.Item label = "Проверка теста">
-                <Switch />
+                <Switch defaultChecked = {props.test.testCheck} onClick = {(e) => props.test.testCheck = e} />
             </Form.Item>
             <Form.Item label = "Показать правильные ответы после выполнения теста">
-                <Switch />
+                <Switch defaultChecked = {props.test.showRigthAnswerAfterTest }
+                 onClick = {(e) => props.test.showRigthAnswerAfterTest = e} />
             </Form.Item>
             <Form.Item label = "Показать правильность ответа после каждого вопроса">
-               <Switch /> 
+               <Switch defaultChecked = {props.test.showRigthAnswerAfterQuestion} 
+               onClick = {(e) => props.test.showRigthAnswerAfterQuestion = e} /> 
             </Form.Item>
         </Form>
     );

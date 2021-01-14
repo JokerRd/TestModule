@@ -10,7 +10,7 @@ class TestJson{
     showRigthAnswerAfterQuestion = false;
     questions = [];
     userAnwsers = [];
-    status = "";
+    status = "redacted";
 }
 
 export default TestJson;

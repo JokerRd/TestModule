@@ -8,7 +8,7 @@ function FormItem_CountAttemptsTest(props){
         <Form.Item label = "Количество попыток на тест">
             <Switch checkedChildren = "Ограничено" unCheckedChildren = "Неограничено"
             onClick = {() => setIsDisabled(!isDisabled)}/>
-            <InputNumber disabled = {isDisabled} onChange = {(e) => props.test.countAttempts = e} />
+            <InputNumber defaultValue = {props.test.countAttempts} disabled = {isDisabled} onChange = {(e) => props.test.countAttempts = e} />
         </Form.Item>
     )
 }

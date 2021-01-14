@@ -4,7 +4,7 @@ import 'antd/dist/antd.css'
 function FormItem_DescriptionTest(props){
     return(
         <Form.Item label = "Описание теста">
-            <Input.TextArea onChange = {(e)=> props.test.description = e.currentTarget.value} />
+            <Input.TextArea defaultValue = {props.test.description} onChange = {(e)=> props.test.description = e.currentTarget.value} />
         </Form.Item>
     )
 }

@@ -10,7 +10,7 @@ function MA_VariantAnswer(props){
                     {fields.map((field, index) => (
                     <Form.Item {...field} label = {(index + 1) + " ответ"}>
                         <Switch unCheckedChildren = "" checkedChildren = "Верный" />
-                        <Input style={{ width: '20%' }}onChange = {(e) => props.questionJson.answers[index] = e.currentTarget.value} />
+                        <Input style={{ width: '20%' }} defaultValue onChange = {(e) => props.questionJson.answers[index] = e.currentTarget.value} />
                         {fields.length > 1 ? (
                         <Button className="dynamic-delete-button"
                         onClick={() =>{

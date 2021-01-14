@@ -7,6 +7,7 @@ import TestJson from './Components/TestJson';
 import QuestionJson from './Components/QuestionJson';
 import StartPage from './Components/StartPage';
 import MyTest from './Components/MyTest';
+import ResultView from './Components/ResultView';
 import {
   Route,
   Switch,
@@ -15,32 +16,18 @@ import {
 } from "react-router-dom"
 
 
-function print(){
-  console.log("Error");
-}
-
-function onComplete(survey, options){
-  //Write survey results into database
-  console.log("Survey results: " + JSON.stringify(survey.data));
- }
-
-let test1 = null;
-
-function setTest1(test){
-  test1 = test;
-}
 
 function App() {
   const [user, setUser] = useState("");
   const [test, setTest] = useState(null);
-  console.log(test1);
   return (
     <div className="App">
       <Switch>
         <Route path = "/startPage" component = {() => <StartPage setUser = {setUser}/>}/>
         <Route path = "/testEditor" component = {() => <TestEditor user = "test"/>}/>
-        <Route path = "/tests" component = {() => <MyTest idUser = "test"  setTest = {setTest1}/>}/>
+        <Route path = "/tests" component = {() => <MyTest idUser = "test"  setTest = {setTest}/>}/>
         <Route path = "/test" component = {() => <TestViewer idUser = "test"  />}/>
+        <Route path = "/results" component = {() => <ResultView idUser = "test" />} />
       </Switch>
     </div>
   );

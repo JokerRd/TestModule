@@ -4,15 +4,18 @@ import TextQuestion from './Universal/TextQuestion'
 import CountPoint from './Universal/CountPoint'
 import CountAttempts from './Universal/CountAttempts'
 
-function TextAnswerQuestion(){
+function TextAnswerQuestion(props){
     return(
         <Form>
-            <TextQuestion />
+            <TextQuestion   questionJson = {props.questionJson} />
             <Form.Item label = "Ответ">
-                <Input />
+                <Input onChange = {(e) => {
+                    props.questionJson.answers = [e.currentTarget.value];
+                    props.questionJson.correctAnswers = [e.currentTarget.value];
+                }} />
             </Form.Item>
-            <CountPoint />
-            <CountAttempts />
+            <CountPoint quaestionJson = {props.questionJson} />
+            <CountAttempts questionJson = {props.questionJson} />
         </Form>
     )
 }

@@ -2,11 +2,37 @@ import 'antd/dist/antd.css'
 import {Form, Modal, Switch, Space, Button, Input, Drawer } from 'antd'
 import React, { useState } from 'react';
 import PeekTypeQuestion from './PeekTypeQuestion'
+import SingleAnswerQuestion from '../SingleAnswerQuestion'
+import FileAnswerQuestion from '../FileAnswerQuestion'
+import MultiAnswerQuestion from '../MultiAnswerQuestion'
+import TextAnswerQuestion from '../TextAnswerQuestion'
+import QuestionModel from './QuestionsModel';
 
-const questions = [];
+let questions = [];
+
+function createQuestions(questions){
+    let result = [];
+    for (let i = 0; i < questions.length; i++)
+        result.push(<QuestionModel questionJson = {questions[i]} getTypeQuestion = {getTypeQuestion} />);
+    return result;
+}
+
+function getTypeQuestion(type, questionJson){
+    switch (type) {
+        case 'single':
+            return <SingleAnswerQuestion questionJson = {questionJson} />;
+        case 'multi':
+            return <MultiAnswerQuestion questionJson = {questionJson} />;
+        case 'text':
+            return <TextAnswerQuestion questionJson = {questionJson} />;
+        default:
+            break;
+    }
+}
 
 function ListQuestions(props){
     const [isVisible, setIsVisible] = useState(false);
+    questions = createQuestions(props.test.questions);
     const close = () => {
         setIsVisible(false);
       };
@@ -32,7 +58,7 @@ function ListQuestions(props){
                 <Button onClick = {() => setIsVisible(true)} type="dashed"> Добавить вопрос</Button>
                 <Form.ErrorList errors={errors} /> 
                 <PeekTypeQuestion add = {add} questions = {questions}
-                isVisible = {isVisible} close = {close} test = {props.test} />
+                isVisible = {isVisible} close = {close} test = {props.test} getTypeQuestion = {getTypeQuestion} />
                 </div>
              )}
         </Form.List>

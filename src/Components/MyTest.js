@@ -38,6 +38,7 @@ function MyTest(props){
                 Мои тесты
             </Layout.Header>
             <Layout.Content>
+                <Button > Создать тест </Button>
                 {cards}
             </Layout.Content>
         </Layout>

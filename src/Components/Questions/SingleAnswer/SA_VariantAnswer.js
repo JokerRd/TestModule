@@ -2,23 +2,6 @@ import 'antd/dist/antd.css'
 import {Form, Input, Button, Switch, Radio, InputNumber} from 'antd'
 import React, { useState } from 'react';
 
-const flags = []
-
-function clearFlags(flags, index){
-    for(var i = 0; i < flags.length; i++){
-        if (i === index){
-            flags[i] = true;
-            continue;
-        }
-        flags[i] = false;   
-    }
-}
-
-function getFlag(flags, index){
-    return flags[index];
-}
-
-
 function SA_VariantAnswer(props){
     const [flag, setFlag] = useState(false);
     return(
