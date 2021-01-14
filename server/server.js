@@ -52,9 +52,26 @@ const testScheme = new Schema({
     status: String
 }, { typeKey: '$type' });
 
+
+const resultScheme = new Schema({
+    idUser: String,
+    idTest: Number,
+    questions: [{
+        type: String,
+        textQuestion: String,
+        answers: [String],
+        correctAnswers: [String],
+        countAttempts: Number,
+        countPoint: Number
+    }],
+    answersUser: [[String]],
+    countPoint: Number,
+    countPointUser: Number
+})
 const User = mongoose.model("User", userScheme);
 const Test = mongoose.model("Test", testScheme);
 const ActiveTest  = mongoose.model("Activetest", activeTestScheme);
+const Result = mongoose.model("Result", resultScheme);
 
 const user = new User({
     login : "1",
@@ -73,6 +90,49 @@ app.get("/", function(request, response){
     response.send("OKO");
 });
 
+// создаем запись с результатами
+app.post("/createResult", jsonParser, (req, res) => {
+    Result.create(req.body, (err, doc) => {
+        if (err) return console.log(err);
+        res.sendStatus(200);
+    });
+});
+//обновляем результаты после ответа
+app.post("/updateAnswers", jsonParser,(req, res) => {
+    Result.updateOne({idUser: req.body.idUser, idTest: req.body.idTest},
+         {answersUser : req.body.answersUser}, (err, result) => {
+            if (err) return console.log(err);
+            res.sendStatus(200);
+         })
+});
+
+app.post("/endTest", jsonParser,(req, res) => {
+    Result.updateOne({idUser: req.body.idUser, idTest: req.body.idTest},
+         req.body, (err, result) => {
+            if (err) return console.log(err);
+            res.sendStatus(200);
+         });
+});
+
+// получение результатов тестов
+app.post("/results", jsonParser, (req, res) => {
+    Result.find({idUser: req.body.idUser}, (err, docs) => {
+        if (err) return console.log(err);
+        res.send(docs);
+    });
+});
+//получение теста на редактирование
+app.post("/getTest",jsonParser, (req, res) =>{
+    Test.findOne({idUser: req.body.idUser, idTest: req.body.idTest}, (err, doc) =>{
+        if (err) return err;
+        res.send(doc);
+    })
+    Test.updateOne({idUser: req.body.idUser, idTest: req.body.idTest},
+        {status : "redacted"}, (err, result) => {
+        if (err) return err;
+        console.log(result);
+    })
+} )
 
 app.post("/activeTest", jsonParser, (req, res) =>{
     console.log(req.body.idUser);
