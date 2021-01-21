@@ -3,7 +3,9 @@ class TestJson{
     idTest = 0;
     nameTest = "";
     description = "";
-    timeLimits = 0;
+    timeLimits = "";
+    dataTimeStart = "";
+    dataTimeEnd = "";
     countAttempts = 1;
     testCheck = false;
     showRigthAnswerAfterTest = false;

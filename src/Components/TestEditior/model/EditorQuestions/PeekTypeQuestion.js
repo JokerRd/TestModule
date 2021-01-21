@@ -22,6 +22,14 @@ function PeekTypeQuestion(props){
                 addQuestion(props.questions, props.add, "text", props.test.questions, props.getTypeQuestion);}}>        
                 Текстовый ответ
             </Button>
+            <Button onClick = {()=>{
+                addQuestion(props.questions, props.add, "sequence", props.test.questions, props.getTypeQuestion);}}>        
+                Правильная последовательность
+            </Button>
+            <Button onClick = {()=>{
+                addQuestion(props.questions, props.add, "file", props.test.questions, props.getTypeQuestion);}}>        
+                Ответ в виде файла
+            </Button>
         </Drawer>  
     )
 }

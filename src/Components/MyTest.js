@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { Button, Layout,Affix, Tabs, Spin } from 'antd';
 import axios from 'axios';
 import CardTest from './MyTest/CardTest';
-import TestViewer from './TestViewer/TestViewer';
 import {
     Route,
     Switch,

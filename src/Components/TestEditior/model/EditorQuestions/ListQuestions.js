@@ -2,18 +2,13 @@ import 'antd/dist/antd.css'
 import {Form, Modal, Switch, Space, Button, Input, Drawer } from 'antd'
 import React, { useState } from 'react';
 import PeekTypeQuestion from './PeekTypeQuestion'
-import SingleAnswerQuestion from './Questions/SingleAnswerQuestion'
-import FileAnswerQuestion from './Questions/FileAnswerQuestion'
-import MultiAnswerQuestion from './Questions/MultiAnswerQuestion'
-import TextAnswerQuestion from './Questions/TextAnswerQuestion'
-import QuestionModel from './QuestionsModel';
 import {createQuestions, getTypeQuestion} from '../../action/EditorQuestionAction'
 
-let questions = [];
+const questions = [];
 
 function ListQuestions(props){
     const [isVisible, setIsVisible] = useState(false);
-    questions = createQuestions(props.test.questions);
+    //questions = createQuestions(props.test.questions);
     const close = () => {
         setIsVisible(false);
       };

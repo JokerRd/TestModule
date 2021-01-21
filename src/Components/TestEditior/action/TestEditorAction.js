@@ -1,8 +1,6 @@
 import 'antd/dist/antd.css'
 import React, { useState, useEffect } from 'react';
 import { Button, Layout,Affix, Tabs, Spin } from 'antd';
-import EditorQuestions from './Questions/EditorQuestions'
-import MenuSwitchSettings from './MenuSwitchSettings'
 import axios from 'axios';
 
 const urlEditor = "http://localhost:4000/editorTest";

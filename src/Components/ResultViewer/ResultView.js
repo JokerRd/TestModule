@@ -2,7 +2,7 @@ import 'antd/dist/antd.css'
 import React, { useState, useEffect } from 'react';
 import { Button, Layout,Affix, Tabs, Spin } from 'antd';
 import axios from 'axios';
-import QuestionResult from './ResultView/QuestionResult';
+import QuestionResult from './QuestionResult';
 const urlResults = "http://localhost:4000/results"; 
 const headers = {
     'Content-Type': 'application/json',

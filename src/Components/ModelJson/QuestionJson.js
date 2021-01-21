@@ -3,6 +3,9 @@ class QuestionJson{
     textQuestion = "";
     answers = [];
     correctAnswers = [];
+    isHelp = false;
+    textHelp = "";
+    isRandomOrderAnswer = false;
     countAttempts = 1;
     countPoint = 1;
 }

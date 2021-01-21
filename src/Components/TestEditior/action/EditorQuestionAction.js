@@ -6,6 +6,8 @@ import MultiAnswerQuestion from '../model/EditorQuestions/Questions/MultiAnswerQ
 import TextAnswerQuestion from '../model/EditorQuestions/Questions/TextAnswerQuestion'
 import QuestionModel from '../model/EditorQuestions/QuestionsModel';
 import QuestionJson from '../../ModelJson/QuestionJson'
+import SequenceQuestion from '../model/EditorQuestions/Questions/SequenceQuestion'
+import FileAnswerQuestion from '../model/EditorQuestions/Questions/FileAnswerQuestion'
 
 export function createQuestions(questions){
     let result = [];
@@ -22,6 +24,10 @@ export function getTypeQuestion(type, questionJson){
             return <MultiAnswerQuestion questionJson = {questionJson} />;
         case 'text':
             return <TextAnswerQuestion questionJson = {questionJson} />;
+        case 'file':
+            return <FileAnswerQuestion questionJson = {questionJson} />;
+        case 'sequence':
+            return <SequenceQuestion questionJson = {questionJson} />;
         default:
             break;
     }
@@ -34,7 +40,7 @@ export function addQuestion(questions, add, typeQuestion, arrQuestionsJson, getT
      var questionJson = new QuestionJson();
      let newQuestion = getTypeQuestion(typeQuestion, questionJson);
      questions.push(newQuestion);
-     arrQuestionsJson(questionJson);
+     arrQuestionsJson.push(questionJson);
      add();
  }
  

@@ -2,13 +2,6 @@ import 'antd/dist/antd.css'
 import React, { useState } from 'react';
 import { Button, Layout,Affix, Tabs, Input, Form } from 'antd';
 import {Link} from "react-router-dom"
-  
-import GroupButtons from './GroupButtons';
-import EditorQuestions from './Questions/EditorQuestions'
-import MenuSwitchSettings from './MenuSwitchSettings'
-import Viewer from './Viewer'
-import TestJson from './TestJson'
-import QuestionJson from './QuestionJson'
 import axios from 'axios';
 const url = "http://localhost:4000/users";
 
