@@ -3,9 +3,12 @@ class TestJson{
     idTest = 0;
     nameTest = "";
     description = "";
-    timeLimits = "";
+    isLimitTime = false;
+    timeLimits = "0";
+    isLimitDataTime = false;
     dataTimeStart = "";
     dataTimeEnd = "";
+    isLimitCountAttempts = false;
     countAttempts = 1;
     testCheck = false;
     showRigthAnswerAfterTest = false;

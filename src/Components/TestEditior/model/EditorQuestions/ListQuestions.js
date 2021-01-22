@@ -19,7 +19,7 @@ function ListQuestions(props){
                 {fields.map((field, index) => (
                     <Form.Item {...field} label = {(index + 1) + " вопрос"}>
                         {questions[index]}
-                        {fields.length > 1 ? (
+                        {fields.length > 0 ? (
                         <Button className="dynamic-delete-button"
                         onClick={() => {
                             remove(field.name);
